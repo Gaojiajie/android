@@ -12,9 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class StudentActivity extends Activity implements View.OnClickListener{
+public class PwdActivity extends Activity implements View.OnClickListener{
 
-    private EditText etName,etGrade;
+    private EditText etName,etUserName,etPassword;
     private ImageView imageView;
     private Button btnChange,btnDelete,btnAdd;
     private int id;
@@ -24,14 +24,15 @@ public class StudentActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student);
+        setContentView(R.layout.change);
 
-        etName= (EditText) findViewById(R.id.student_name);
-        etGrade= (EditText) findViewById(R.id.student_grade);
+        etName= (EditText) findViewById(R.id.Pwd_name);
+        etUserName= (EditText) findViewById(R.id.Pwd_userName);
+        etPassword= (EditText)findViewById(R.id.Pwd_password);
         btnChange= (Button) findViewById(R.id.btn_change);
         btnDelete= (Button) findViewById(R.id.btn_delete);
-        btnAdd= (Button) findViewById(R.id.btn_add_student);
-        imageView= (ImageView) findViewById(R.id.student_image);
+        btnAdd= (Button) findViewById(R.id.btn_add_pwd);
+        imageView= (ImageView) findViewById(R.id.pwd_image);
 
         handler=new DatabaseHandler(this);
 
@@ -50,7 +51,8 @@ public class StudentActivity extends Activity implements View.OnClickListener{
             case "Look":
                 id=intent.getExtras().getInt("id");
                 etName.setText(intent.getStringExtra("name"));
-                etGrade.setText(intent.getStringExtra("grade"));
+                etUserName.setText(intent.getStringExtra("userName"));
+                etPassword.setText(intent.getStringExtra("password"));
                 if(id%2==0)
                 {
                     imageView.setImageResource(R.mipmap.girl1);
@@ -67,22 +69,22 @@ public class StudentActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btn_add_student:
-                Student newStudent=new Student(id,etName.getText().toString(),etGrade.getText().toString());
-                handler.addStudent(newStudent);
+            case R.id.btn_add_pwd:
+                Pwd newPwd=new Pwd(id,etName.getText().toString(),etUserName.getText().toString(),etPassword.getText().toString());
+                handler.addPwd(newPwd);
                 setResult(RESULT_OK, intent);
                 finish();
                 break;
             case R.id.btn_change:
-                Student student=new Student(id,etName.getText().toString(),etGrade.getText().toString());
-                handler.updateStudent(student);
+                Pwd pwd=new Pwd(id,etName.getText().toString(),etUserName.getText().toString(),etPassword.getText().toString());
+                handler.updatePwd(pwd);
                 //这里设置resultCode是为了区分是修改后返回主界面的还是删除后返回主界面的。
                 setResult(2,intent);
                 finish();
                 break;
             case R.id.btn_delete:
-                Student s=new Student(id,etName.getText().toString(),etGrade.getText().toString());
-                handler.deleteStudent(s);
+                Pwd p=new Pwd(id,etName.getText().toString(),etUserName.getText().toString(),etPassword.getText().toString());
+                handler.deletePwd(p);
                 setResult(3, intent);
                 finish();
                 break;

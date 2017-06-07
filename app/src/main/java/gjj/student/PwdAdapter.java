@@ -13,23 +13,23 @@ import java.util.List;
 /**
  * Created by QiWangming on 2015/5/26.
  */
-public class StudentAdapter extends BaseAdapter {
-    private List<Student> students;
+public class PwdAdapter extends BaseAdapter {
+    private List<Pwd> pwds;
     private Context context;
-    public StudentAdapter(Context context,List<Student> students) {
+    public PwdAdapter(Context context, List<Pwd> students) {
         super();
-        this.students=students;
+        this.pwds=students;
         this.context=context;
     }
 
     @Override
     public int getCount() {
-        return students.size();
+        return pwds.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return students.get(i);
+        return pwds.get(i);
     }
 
     @Override
@@ -44,17 +44,19 @@ public class StudentAdapter extends BaseAdapter {
         }
         ImageView imageView= (ImageView) view.findViewById(R.id.image);
         TextView tvName= (TextView) view.findViewById(R.id.name);
-        TextView tvGrade= (TextView) view.findViewById(R.id.grade);
+        TextView tvUserName= (TextView) view.findViewById(R.id.userName);
+        TextView tvPassword= (TextView) view.findViewById(R.id.password);
 
         //随机为学生匹配头像
-        if(students.get(i).getId()%2==0)
+        if(pwds.get(i).getId()%2==0)
         {
             imageView.setImageResource(R.mipmap.girl1);
         }else{
             imageView.setImageResource(R.mipmap.boy2);
         }
-        tvName.setText("姓名  "+students.get(i).getName());
-        tvGrade.setText("分数  "+students.get(i).getGrade());
+        tvName.setText("站    点:"+pwds.get(i).getName());
+        tvUserName.setText("用户名:"+pwds.get(i).getUserName());
+        tvPassword.setText("密    码:" + pwds.get(i).getPassword());
         return view;
     }
 }

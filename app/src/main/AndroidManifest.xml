@@ -26,7 +26,7 @@
 
         <activity android:name=".MainPage">
         </activity>
-        <activity android:name=".StudentActivity"/>
+        <activity android:name=".PwdActivity"/>
     </application>
 
 </manifest>

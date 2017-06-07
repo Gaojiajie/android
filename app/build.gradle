@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "gjj.student"
+        applicationId "gjj.change"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1

@@ -10,7 +10,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="#5ABC4F"
-        android:hint="学生姓名"
+        android:hint="密码站点"
         android:layout_width="wrap_content"
         android:layout_margin="10dp"
         android:layout_height="50dp" />
@@ -30,5 +30,16 @@
         android:background="#5ABC4F"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
+    <Button
+            android:id="@+id/btn_close"
+            android:layout_margin="10dp"
+            android:text="退出"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:background="#5ABC4F"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+
 
 </LinearLayout>

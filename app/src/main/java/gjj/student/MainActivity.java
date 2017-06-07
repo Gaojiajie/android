@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 new Thread(){
                   @Override
                   public void run(){
-                      String url = "http://192.168.1.103:8080/2014124068/doLogin";
+                      String url = "http://192.168.1.101:8080/2014124068/doLogin";
                       etName = (EditText)findViewById(R.id.etName);
                       etPassword = (EditText)findViewById(R.id.etPassword);
                       url += "?etName="+etName.getText().toString()+"&etPassword="+etPassword.getText().toString();
